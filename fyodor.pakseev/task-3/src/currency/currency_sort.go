@@ -7,6 +7,6 @@ import (
 
 func SortCurrenciesByValue(currencies []Currency) {
 	slices.SortFunc(currencies, func(a, b Currency) int {
-		return cmp.Compare(a.Value, b.Value)
+		return cmp.Compare(b.Value, a.Value)
 	})
 }

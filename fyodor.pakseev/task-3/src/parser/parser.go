@@ -41,6 +41,7 @@ func ParseXML(path string) ([]currency.Currency, error) {
 	}
 
 	rates := make([]currency.Currency, 0, len(rawXML.Currencies))
+
 	for _, item := range rawXML.Currencies {
 		parsed, err := ConvertXMLValueToFloat(item.Value)
 		if err != nil {
@@ -52,8 +53,8 @@ func ParseXML(path string) ([]currency.Currency, error) {
 			CharCode: item.CharCode,
 			Value:    parsed,
 		})
-
 	}
+
 	return rates, nil
 }
 
@@ -64,5 +65,6 @@ func ConvertXMLValueToFloat(value string) (float64, error) {
 	if err != nil {
 		return 0, fmt.Errorf("failed to parse value: %w", err)
 	}
+
 	return res, nil
 }
