@@ -24,6 +24,7 @@ func main() {
 	}
 
 	currency.SortCurrenciesByValue(currencies)
+
 	if err := writer.SaveJSON(cfg.OutputFile, currencies); err != nil {
 		panic(err)
 	}
